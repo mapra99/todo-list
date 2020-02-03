@@ -4,15 +4,25 @@ const DOM = (() => {
   const openForm = () => {
     const container = document.querySelector('#newTodo');
     container.style.display = 'block';
+    const button = document.querySelector('.todoButton');
+    button.style.display = 'none';
+  };
+
+  const closeForm = () => {
+    const container = document.querySelector('#newTodo');
+    container.style.display = 'none';
   };
   const Todo = () => {
     const button = document.createElement('button');
+    button.classList.add('todoButton','form-control');
     button.innerText = 'Add Todo';
     button.addEventListener('click', openForm);
     const container = document.createElement('form');
+    button.classList.add('text-center');
     container.id = 'newTodo';
     container.style.display = 'none';
     const title = document.createElement('input');
+    title.classList.add('form-control');
     title.name = 'title';
     title.value = '';
     title.type = 'text';
@@ -22,6 +32,7 @@ const DOM = (() => {
     titlelabel.innerText = 'Name';
 
     const description = document.createElement('textarea');
+    description.classList.add('form-control');
     description.name = 'description';
     description.value = '';
 
@@ -30,6 +41,7 @@ const DOM = (() => {
     descriptionlabel.innerText = 'Description';
 
     const dueDate = document.createElement('input');
+    dueDate.classList.add('form-control', 'bg-primary');
     dueDate.name = 'date';
     dueDate.value = '';
     dueDate.type = 'date';
@@ -39,6 +51,7 @@ const DOM = (() => {
     datelabel.innerText = 'Date';
 
     const priority = document.createElement('select');
+    priority.classList.add('form-control');
     priority.name = 'priority';
     priority.value = '';
 
@@ -62,8 +75,14 @@ const DOM = (() => {
 
     const submit = document.createElement('button');
     submit.innerText = 'Submit';
+    submit.classList.add('form-control', 'bg-tetiary');
 
-    container.append(titlelabel, title, descriptionlabel, description, datelabel, dueDate, prioritylabel, priority, submit);
+    const cancel = document.createElement('button');
+    cancel.classList.add('form-control', 'bg-danger');
+    cancel.innerText = 'Cancel';
+    cancel.addEventListener('click', closeForm);
+
+    container.append(titlelabel, title, descriptionlabel, description, datelabel, dueDate, prioritylabel, priority, submit, cancel);
     const body = document.querySelector('body');
 
     body.appendChild(button);
