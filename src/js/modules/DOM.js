@@ -1,4 +1,4 @@
-import ToDo from "./todo";
+import ToDo from './todo';
 
 const DOM = (() => {
   const openForm = () => {
