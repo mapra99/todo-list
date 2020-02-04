@@ -6,17 +6,42 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  border: 3px solid #ccc;
 }
 
-main {
-  display: flex;
-  flex-direction: row;
-  width: 75%;
-  height: 75%;
-}
-
-nav {
+#todos, #projects {
   height: 100%;
   width: 25%;
+}
+
+.app-title {
+  margin-top: -90px;
+}
+
+.empty-state {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  display: none;
+}
+
+.checklist-icon {
+  margin-bottom: 20px;
+}
+
+.empty-state__title,
+.empty-state__description {
+  margin-bottom: 20px;
+}
+
+/* Add this below the other styles */
+.todo-list:empty {
+  display: none;
+}
+
+.todo-list:empty+.empty-state {
+  display: flex;
+}
+
+.fa-clipboard-list {
+  color: #000;
 }

@@ -12,7 +12,7 @@ const DOM = (() => {
   };
   const Todo = () => {
     const button = document.createElement('button');
-    button.classList.add('todoButton', 'bg-primary', 'form-control', 'text-center');
+    button.classList.add('todoButton', 'btn', 'btn-primary', 'text-center');
     button.innerText = 'Add Todo';
     button.addEventListener('click', openForm);
     const container = document.createElement('form');
@@ -72,14 +72,14 @@ const DOM = (() => {
 
     const submit = document.createElement('button');
     submit.innerText = 'Submit';
-    submit.classList.add('form-control', 'bg-tetiary');
+    submit.classList.add('btn', 'btn-success');
 
     const cancel = document.createElement('button');
-    cancel.classList.add('form-control', 'bg-danger');
+    cancel.classList.add('btn', 'btn-danger');
     cancel.innerText = 'Cancel';
     cancel.addEventListener('click', closeForm);
 
-    const todo = document.getElementById('todos');
+    const todo = document.querySelector('.todo-form');
 
     container.append(titlelabel,
       title,
@@ -121,10 +121,10 @@ const DOM = (() => {
     const div = document.createElement('div');
     const submit = document.createElement('button');
     submit.innerText = 'Submit';
-    submit.classList.add('form-control', 'bg-tetiary', 'col-12', 'col-sm-6', 'col-md-6');
+    submit.classList.add('btn', 'btn-success', 'col-12', 'col-sm-6', 'col-md-6');
 
     const cancel = document.createElement('button');
-    cancel.classList.add('form-control', 'bg-danger', 'col-12', 'col-sm-6', 'col-md-6');
+    cancel.classList.add('btn', 'btn-danger', 'col-12', 'col-sm-6', 'col-md-6');
     cancel.innerText = 'Cancel';
     cancel.addEventListener('click', closeForm);
 
