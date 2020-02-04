@@ -94,7 +94,48 @@ const DOM = (() => {
     todo.appendChild(button);
     todo.appendChild(container);
   };
+
+  const Notes = () => {
+    const notesForm = document.createElement('form');
+    notesForm.classList.add('notesForm');
+
+    const titlelabel = document.createElement('label');
+    titlelabel.for = 'todo';
+    titlelabel.innerText = 'Todo';
+
+    const title = document.createElement('input');
+    title.classList.add('form-control');
+    title.name = 'todo';
+    title.value = '';
+    title.type = 'text';
+
+    const descriptionlabel = document.createElement('label');
+    descriptionlabel.for = 'notes';
+    descriptionlabel.innerText = 'Notes';
+
+    const description = document.createElement('textarea');
+    description.classList.add('form-control');
+    description.name = 'notes';
+    description.value = '';
+
+    const div = document.createElement('div');
+    const submit = document.createElement('button');
+    submit.innerText = 'Submit';
+    submit.classList.add('form-control', 'bg-tetiary', 'col-12', 'col-sm-6', 'col-md-6');
+
+    const cancel = document.createElement('button');
+    cancel.classList.add('form-control', 'bg-danger', 'col-12', 'col-sm-6', 'col-md-6');
+    cancel.innerText = 'Cancel';
+    cancel.addEventListener('click', closeForm);
+
+    div.append(submit, cancel)
+
+    const content = document.querySelector('.content');
+    notesForm.append(titlelabel, title, descriptionlabel, description, div);
+    content.appendChild(notesForm);
+  };
   Todo();
+  Notes();
 })();
 
 export default DOM;
