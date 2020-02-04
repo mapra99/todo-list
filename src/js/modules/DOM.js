@@ -1,5 +1,3 @@
-import ToDo from './todo';
-
 const DOM = (() => {
   const openForm = () => {
     const container = document.querySelector('#newTodo');
@@ -14,11 +12,10 @@ const DOM = (() => {
   };
   const Todo = () => {
     const button = document.createElement('button');
-    button.classList.add('todoButton','form-control');
+    button.classList.add('todoButton', 'bg-primary', 'form-control', 'text-center');
     button.innerText = 'Add Todo';
     button.addEventListener('click', openForm);
     const container = document.createElement('form');
-    button.classList.add('text-center');
     container.id = 'newTodo';
     container.style.display = 'none';
     const title = document.createElement('input');
@@ -82,11 +79,20 @@ const DOM = (() => {
     cancel.innerText = 'Cancel';
     cancel.addEventListener('click', closeForm);
 
-    container.append(titlelabel, title, descriptionlabel, description, datelabel, dueDate, prioritylabel, priority, submit, cancel);
-    const body = document.querySelector('body');
+    const todo = document.getElementById('todos');
 
-    body.appendChild(button);
-    body.appendChild(container);
+    container.append(titlelabel,
+      title,
+      descriptionlabel,
+      description, datelabel,
+      dueDate,
+      prioritylabel,
+      priority,
+      submit,
+      cancel);
+
+    todo.appendChild(button);
+    todo.appendChild(container);
   };
   Todo();
 })();
