@@ -1,5 +1,6 @@
 const DOM = (() => {
-  const openForm = () => {
+  const openForm = (event) => {
+    event.preventDefault();
     const container = document.querySelector('#newTodo');
     container.style.display = 'block';
     const button = document.querySelector('.todoButton');
@@ -11,6 +12,7 @@ const DOM = (() => {
     container.style.display = 'none';
   };
   const Todo = () => {
+    console.log('Todo');
     const button = document.createElement('button');
     button.classList.add('todoButton', 'btn', 'btn-primary', 'text-center');
     button.innerText = 'Add Todo';
@@ -134,6 +136,7 @@ const DOM = (() => {
     notesForm.append(titlelabel, title, descriptionlabel, description, div);
     content.appendChild(notesForm);
   };
+
   Todo();
   Notes();
 })();
