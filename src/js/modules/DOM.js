@@ -11,8 +11,13 @@ const DOM = (() => {
     const container = document.querySelector('#newTodo');
     container.style.display = 'none';
   };
+
+  const createNewTodo = (event) => {
+    const title = document.querySelector('#newTodo[title]');
+    console.log(title.value);
+  };
+
   const Todo = () => {
-    console.log('Todo');
     const button = document.createElement('button');
     button.classList.add('todoButton', 'btn', 'btn-primary', 'text-center');
     button.innerText = 'Add Todo';
@@ -75,6 +80,7 @@ const DOM = (() => {
     const submit = document.createElement('button');
     submit.innerText = 'Submit';
     submit.classList.add('btn', 'btn-success');
+    submit.addEventListener('click', createNewTodo);
 
     const cancel = document.createElement('button');
     cancel.classList.add('btn', 'btn-danger');
